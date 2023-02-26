@@ -1,0 +1,46 @@
+<QBotGrid>:
+
+    startTime: startTime
+    endTime: endTime
+    queueTime: queueTime
+    parkChoice: parkChoice
+    rideChoice: rideChoice
+
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+            Label:
+                text: "Park: "
+
+            TextInput:
+                id: parkChoice
+                multiline: False
+
+            Label:
+                text: "Ride: "
+
+            TextInput:
+                id: rideChoice
+                multiline: False
+
+        Button:
+            id: startTime
+            text: "Start Waiting"
+            on_press:
+                root.startQueue()
+
+        Button:
+            id: endTime
+            text: "Stop Waiting"
+            on_press:
+                root.endQueue()
+                root.queueDuration()
+        
+        Button:
+            id: queueTime
+            text: "Report Wait"
+            on_press:
+                root.checkData()
